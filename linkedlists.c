@@ -5,7 +5,7 @@ struct node {
     struct node * next;
 }node;
 struct node * head;
-struct node * create_node(struct node * ptr,int data)
+struct node * create_node(int data)
 {
     struct node * newnode = malloc(sizeof (struct node));
     newnode -> data = data;
@@ -26,5 +26,23 @@ void print_list(struct node * ptr){
     }
 }
 
-//hi 
+void insert_element_in_between(struct node * ptr ,int data,int pos1,int pos2){
+    if (ptr == NULL){
+        printf("empty list");
+        return;
+    }
+    else{
+        while (ptr != NULL){
+            if ((ptr -> data == pos1)&&(ptr ->next -> data == pos2)){
+                struct node * newnode = create_node(data);
+                newnode -> next = ptr -> next;
+                ptr -> next = newnode;
+                printf("insertion complete");
+                free(newnode);
+
+            }
+        }
+    }
+}
+
 
