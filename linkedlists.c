@@ -45,4 +45,18 @@ void insert_element_in_between(struct node * ptr ,int data,int pos1,int pos2){
     }
 }
 
+void insert_at_begining(struct node *ptr,int data){
+    if (ptr == NULL){
+        printf("empty list");
+        return;
+    }
+    else{
+        struct node * newnode = create_node(data);
+        newnode -> next = head -> next;
+        head = newnode;
+        free(newnode);
+        
 
+    }
+
+}
