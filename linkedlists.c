@@ -75,6 +75,23 @@ void delete_element(struct node * ptr,int data){
     }
 
 }
+void insert_at_end(struct node * ptr,int data){
+    if (ptr == NULL){
+        printf("List not found");
+        return;
+    
+    }
+    else{
+        while (ptr -> next != NULL){
+            ptr = ptr -> next;
+        }
+        struct node * newnode = create_node(data);
+        ptr -> next = newnode;
+        free(newnode);
+        printf("Element inserted successfully!!");
+
+    }
+}
 
 
 int main(void){
@@ -104,7 +121,13 @@ int main(void){
                 printf("Data entry successful");
 
             }
-            else if (choice == 3)
+            else if (choice == 3){
+                int data;
+                printf("Enter the data:");
+                scanf("%d",&data);
+                insert_at_end(head,data);
+                
+            }
         }
     }
     
