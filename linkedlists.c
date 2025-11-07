@@ -109,6 +109,23 @@ void insert_at_end(struct node * ptr,int data){
     }
 }
 
+void insert_after(struct node * ptr,int data,int node){
+    while (ptr  != NULL){
+        if (ptr -> data == node){
+            struct node * newnode = create_node(node);
+            if (ptr -> next == NULL){
+                ptr -> next = newnode;
+            }
+            else{
+            newnode -> next = ptr -> next;
+            ptr -> next = newnode;
+            }
+        }
+        ptr = ptr -> next;
+    }
+}
+
+
 
 int main (void){
     int ch = 0;
@@ -154,8 +171,8 @@ int main (void){
         else if (ch == 2 ){
             int a = 0;
             printf("1.Insert element in begining of the list \n");
-            printf("2.Insert element in between of the list \n ");
-            printf("3.Insert element at the end  of the list \n");
+            printf("2.Insert element after a node \n ");
+            
             printf("enter your choice : ");
             scanf("%d",&a);
             if (a == 1){
@@ -169,14 +186,14 @@ int main (void){
                 print_list(head);
                 printf("\nEnter the position and data to be inserted:\n");
 
-                int pos1,pos2,data;
-                printf("Enter pos1:");
-                scanf("%d",&pos1);
-                printf("\nenter pos 2:");
-                scanf("%d",&pos2);
+                int data , node;
+                printf("Enter node after which you want to insert :");
+                scanf("%d",&node);
+                
                 printf("\nenter data:");
                 scanf("%d",&data);
-                insert_element_in_between(head,data,pos1,pos2);
+                insert_after(head,data,node);
+                
                 
             }
             else if ( a == 3){
