@@ -8,7 +8,7 @@ int search_linear(int arr[],int n ,int a){
         }
     }
     printf("Element not found!!");
-    return 1;
+    return -1;
 }
 
 
