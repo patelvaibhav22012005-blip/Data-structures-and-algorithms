@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include<stdbool.h>
+
 int binary_search(int arr[],int n , int a){
     int first = 0;
     int last = n-1;
@@ -21,6 +21,11 @@ int binary_search(int arr[],int n , int a){
 
 }
 
+
+    
+
+
+
 int main(void){
     int n ;
     printf("enter size of the array");
@@ -41,4 +46,5 @@ int main(void){
     else{
         printf("element at index %d :",n);
     }
+    return 0;
 }
